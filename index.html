@@ -4,23 +4,55 @@
     <meta charset="UTF-8">
     <title>beautiful photos @msthomas.xyz</title>
     <link rel="stylesheet" href="css/syle.css">
+    <script>
+        closeImage = function (e) {
+            document.activeElement.blur();
+            return false;
+        }
+    </script>
 </head>
 <body>
-    <h1>Beautiful Photos @ msthomas.xyz</h1>
+    <a id="fake"></a>
+    <h1>Beautiful Photos @msthomas.xyz</h1>
     <p>
         look at beautiful photos you can print them.
     </p>
 
     <div class="images">
-        <img src="img/100_0211.jpg">
+        <a href="#">
+            <div class="image" id="img100_0211">
+                <button onclick="closeImage()" class="close">✕</button>
+                <img src="img/100_0211.jpg">
+            </div>
+        </a>
 
-        <img src="img/100_0212.jpg">
+        <a href="#">
+            <div class="image" id="img100_0212">
+                <button onclick="closeImage()" class="close">✕</button>
+                <img src="img/100_0212.jpg">
+            </div>
+        </a>
 
-        <img src="img/100_0215.jpg">
+        <a href="#">
+            <div class="image" id="img100_0215">
+                <button onclick="closeImage()" class="close">✕</button>
+                <img src="img/100_0215.jpg">
+            </div>
+        </a>
 
-        <img src="img/100_0216.jpg">
+        <a href="#">
+            <div class="image" id="img100_0216">
+                <button onclick="closeImage()" class="close">✕</button>
+                <img src="img/100_0216.jpg">
+            </div>
+        </a>
 
-        <img src="img/100_0288.jpg">
+        <a href="#">
+            <div class="image" id="img100_0288">
+                <button onclick="closeImage()" class="close">✕</button>
+                <img src="img/100_0288.jpg">
+            </div>
+        </a>
     </div>
 
 </body>
