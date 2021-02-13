@@ -1,0 +1,12 @@
+img {
+    max-width: 100%;
+}
+.images {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.images img {
+    width: 33%;
+    display: block;
+}
