@@ -63,7 +63,11 @@
             $('#popup .close').on('click', function(event){
                 $popup.fadeOut();
             })
-
+            $('body').on('keydown', function(event){
+                if(event.which == 27) {
+                    $popup.fadeOut();
+                }     
+            })
         })
     </script>
 </body>
