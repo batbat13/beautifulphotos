@@ -62,6 +62,19 @@
                 var image = $a.find('img').attr('src');
                 current_image = $a;
                 $popup.find('img').attr('src', image);
+
+                if(current_image.prev().length == 1) {
+                    $("#popup .prev").show();
+                } else {
+                    $("#popup .prev").hide();
+                }
+
+                if(current_image.next().length == 1) {
+                    $("#popup .next").show();
+                } else {
+                    $("#popup .next").hide();
+                }
+
                 $popup.fadeIn();
             })
             $('#popup .close').on('click', function(event){
