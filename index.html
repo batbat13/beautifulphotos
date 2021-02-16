@@ -45,6 +45,8 @@
     <div id="popup">
         <div class="wrapper">
             <button class="close">✕</button>
+            <button class="next">⇨</button>
+            <button class="prev">⇦</button>
             <div class="image">
                 <img>
             </div>
@@ -53,21 +55,42 @@
     <script src="js/jquery.js"></script>
     <script>
         $('body').ready(function(){
-            var $popup = $('#popup'); 
+            var $popup = $('#popup');
+            var current_image; 
             $('.images a').on('click', function(event) {
                 var $a = $(this);
                 var image = $a.find('img').attr('src');
+                current_image = $a;
                 $popup.find('img').attr('src', image);
                 $popup.fadeIn();
             })
             $('#popup .close').on('click', function(event){
                 $popup.fadeOut();
             })
+            $('#popup .next').on('click' , function(event){
+                current_image.next().trigger('click');
+            })
+            $("#popup .prev").on('click', function(event){
+                current_image.prev().trigger('click');    
+            })
+
+
+
             $('body').on('keydown', function(event){
                 if(event.which == 27) {
                     $popup.fadeOut();
-                }     
+            
+                }
+                if(event.which == 37) {
+                    // go previous
+                    current_image.prev().trigger('click');
+                }
+                if(event.which == 39) {
+                    // go next
+                    current_image.next().trigger('click');
+                }   
             })
+
         })
     </script>
 </body>
