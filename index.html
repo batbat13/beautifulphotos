@@ -15,48 +15,56 @@
     </script>
 </head>
 <body>
-    <a id="fake"></a>
-    <h1>Beautiful Photos @msthomas.xyz</h1>
+    <h1>Beautiful Photos</h1>
     <p>
-        look at beautiful photos you can print them.
+        look at beautiful photos you can check lovely photos here
     </p>
 
     <div class="images">
         <a href="#">
-            <div class="image" id="img100_0211">
-                <button onclick="closeImage()" class="close">✕</button>
-                <img src="img/100_0211.jpg">
-            </div>
+            <img src="img/100_0211.jpg">
         </a>
 
         <a href="#">
-            <div class="image" id="img100_0212">
-                <button onclick="closeImage()" class="close">✕</button>
-                <img src="img/100_0212.jpg">
-            </div>
+            <img src="img/100_0212.jpg">
         </a>
 
         <a href="#">
-            <div class="image" id="img100_0215">
-                <button onclick="closeImage()" class="close">✕</button>
-                <img src="img/100_0215.jpg">
-            </div>
+            <img src="img/100_0215.jpg">
         </a>
 
         <a href="#">
-            <div class="image" id="img100_0216">
-                <button onclick="closeImage()" class="close">✕</button>
-                <img src="img/100_0216.jpg">
-            </div>
+            <img src="img/100_0216.jpg">
         </a>
 
         <a href="#">
-            <div class="image" id="img100_0288">
-                <button onclick="closeImage()" class="close">✕</button>
-                <img src="img/100_0288.jpg">
-            </div>
+            <img src="img/100_0288.jpg">
         </a>
     </div>
 
+    <div id="popup">
+        <div class="wrapper">
+            <button class="close">✕</button>
+            <div class="image">
+                <img>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $('body').ready(function(){
+            var $popup = $('#popup'); 
+            $('.images a').on('click', function(event) {
+                var $a = $(this);
+                var image = $a.find('img').attr('src');
+                $popup.find('img').attr('src', image);
+                $popup.fadeIn();
+            })
+            $('#popup .close').on('click', function(event){
+                $popup.fadeOut();
+            })
+
+        })
+    </script>
 </body>
 </html>
