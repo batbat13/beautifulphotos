@@ -53,6 +53,7 @@
         </div>
     </div>
     <script src="js/jquery.js"></script>
+    <script src="js/Tocca.min.js"></script>
     <script>
         $('body').ready(function(){
             var $popup = $('#popup');
@@ -86,6 +87,13 @@
             $("#popup .prev").on('click', function(event){
                 current_image.prev().trigger('click');    
             })
+            $('#popup').on('swiperight' , function(event){
+               current_image.next().trigger('click'); 
+            })
+            $('#popup').on('swipeleft',function(event){
+                current_image.prev().trigger('click');
+            })
+            
 
 
 
