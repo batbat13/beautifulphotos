@@ -97,6 +97,7 @@ img {
     background-color: lightgray;
     text-decoration: none;
     padding: 5px 10px;
+    color: black;
 }  
 .button:hover {
     background-color: #a2e653;
