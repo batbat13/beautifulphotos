@@ -99,18 +99,21 @@
 
 
             $('body').on('keydown', function(event){
-                if(event.which == 27) {
-                    $popup.fadeOut();
-            
+                if( $popup.is(':visible') ){
+                    if(event.which == 27) { // esc key
+                        $popup.fadeOut();
+                
+                    }
+                    if(event.which == 37) { // left key
+                        // go previous
+                        current_image.prev().trigger('click');
+                    }
+                    if(event.which == 39) { // right key
+                        // go next
+                        current_image.next().trigger('click');
+                    } 
                 }
-                if(event.which == 37) {
-                    // go previous
-                    current_image.prev().trigger('click');
-                }
-                if(event.which == 39) {
-                    // go next
-                    current_image.next().trigger('click');
-                }   
+                  
             })
 
         })
