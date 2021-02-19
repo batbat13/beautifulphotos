@@ -1,4 +1,6 @@
 body {
+    color: #ffffff;
+    background-color: #AB47BC;
     font-family: 'Newsreader', serif;
 }
 html {
@@ -52,7 +54,7 @@ img {
     bottom: 0;
     right: 0;
     left: 0;
-    background-color: #bdbdbd;
+    background-color: #AB47BC;
 }
 .close {
     position: absolute;
