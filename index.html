@@ -5,7 +5,8 @@
     <title>beautiful photos @msthomas.xyz</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/syle.css?v=3">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/syle.css?v=4">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         closeImage = function (e) {
@@ -52,9 +53,9 @@
             <div class="image">
                 <img>
             </div>
-            <a href="#" class="button close">✕</a>
-            <a href="#" class="button next">⇨</a>
-            <a href="#" class="button prev">⇦</a>
+            <a href="#" class="button close"><i class="fa fa-times" aria-hidden="true"></i></a>
+            <a href="#" class="button next"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            <a href="#" class="button prev"><i class="fa fa-arrow-left" aria-hidden="true"></i></a>
         </div>
     </div>
     <script src="js/jquery.js"></script>
@@ -86,18 +87,23 @@
             })
             $('#popup .close').on('click', function(event){
                 $popup.fadeOut();
+                return false;
             })
             $('#popup .next').on('click' , function(event){
                 current_image.next().trigger('click');
+                return false;
             })
             $("#popup .prev").on('click', function(event){
-                current_image.prev().trigger('click');    
+                current_image.prev().trigger('click');
+                return false;
             })
             $('#popup').on('swipeleft' , function(event){
-               current_image.next().trigger('click'); 
+               current_image.next().trigger('click');
+               return false;
             })
             $('#popup').on('swiperight',function(event){
                 current_image.prev().trigger('click');
+                return false;
             })
 
 
