@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/syle.css?v=5">
+    <link rel="stylesheet" href="css/syle.css?v=7">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script>
         closeImage = function (e) {
@@ -22,7 +22,7 @@
     </p>
     <p>
             you can click any photo for full screen <br>
-            you can either swipe,use the arrow key or your keyboard to go to the next or previous photo <br>
+            you can either swipe, use the arrow key or your keyboard to go to the next or previous photo <br>
             you can also use the esc key on your keyboard to get close the photo or the x button 
     </p>
 
@@ -63,52 +63,78 @@
     <script>
         $('body').ready(function(){
             var $popup = $('#popup');
-            var current_image; 
+            var current_image;
+
+            // go to next image
+            var goNext = function () {
+                current_image.next().trigger('click');
+                highlightElement($popup.find('.button.next'));
+            }
+
+            // go to previous image
+            var goPrev = function() {
+                current_image.prev().trigger('click');
+                highlightElement($popup.find('.button.prev'));
+            }
+
+            // highlight an element
+            var highlightElement = function(element) {
+                element.addClass('highlight');
+                setTimeout(function() {
+                    element.removeClass('highlight');
+                }, 1000);
+            }
+
+            // open a popup when we click on any image
             $('.images a').on('click', function(event) {
                 var $a = $(this);
                 var image = $a.find('img').attr('src');
                 current_image = $a;
                 $popup.find('img').attr('src', image);
 
+                // show/hide the previous button as needed
                 if(current_image.prev().length == 1) {
-                    $("#popup .prev").show();
+                    $("#popup .prev").fadeIn();
                 } else {
-                    $("#popup .prev").hide();
+                    $("#popup .prev").fadeOut();
                 }
 
+                // show/hide next button as needed
                 if(current_image.next().length == 1) {
-                    $("#popup .next").show();
+                    $("#popup .next").fadeIn();
                 } else {
-                    $("#popup .next").hide();
+                    $("#popup .next").fadeOut();
                 }
 
                 $popup.fadeIn();
                 return false;
             })
+
+            // the close, next, and previous buttons
             $('#popup .close').on('click', function(event){
                 $popup.fadeOut();
                 return false;
             })
             $('#popup .next').on('click' , function(event){
-                current_image.next().trigger('click');
+                goNext();
                 return false;
             })
             $("#popup .prev").on('click', function(event){
-                current_image.prev().trigger('click');
+                goPrev();
                 return false;
             })
+
+            // swiping
             $('#popup').on('swipeleft' , function(event){
-               current_image.next().trigger('click');
+               goNext();
                return false;
             })
             $('#popup').on('swiperight',function(event){
-                current_image.prev().trigger('click');
+                goPrev();
                 return false;
             })
 
-
-
-
+            // keyboard functionality
             $('body').on('keydown', function(event){
                 if( $popup.is(':visible') ){
                     if(event.which == 27) { // esc key
@@ -116,12 +142,10 @@
                 
                     }
                     if(event.which == 37) { // left key
-                        // go previous
-                        current_image.prev().trigger('click');
+                        goPrev();
                     }
                     if(event.which == 39) { // right key
-                        // go next
-                        current_image.next().trigger('click');
+                        goNext();
                     } 
                 }
                   

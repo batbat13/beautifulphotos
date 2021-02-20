@@ -1,5 +1,5 @@
 body {
-    color: #ffffff;
+    color: #33bf21;
     background-color: #AB47BC;
     font-family: 'Newsreader', serif;
 }
@@ -100,7 +100,9 @@ img {
     text-decoration: none;
     padding: 5px 10px;
     color: black;
-}  
-.button:hover {
+    transition: all 500ms;
+}
+.button:hover,
+.button.highlight {
     background-color: #a2e653;
 }
