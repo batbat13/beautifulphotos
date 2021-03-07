@@ -77,6 +77,14 @@
                 highlightElement($popup.find('.button.prev'));
             }
 
+            var open = function() {
+                $popup.fadeIn(1000);
+            }
+
+            var close = function(){
+                $popup.fadeOut(1000);
+            } 
+
             // highlight an element
             var highlightElement = function(element) {
                 element.addClass('highlight');
@@ -106,13 +114,13 @@
                     $("#popup .next").fadeOut();
                 }
 
-                $popup.fadeIn();
+                open();
                 return false;
             })
 
             // the close, next, and previous buttons
             $('#popup .close').on('click', function(event){
-                $popup.fadeOut();
+                close();
                 return false;
             })
             $('#popup .next').on('click' , function(event){
@@ -138,7 +146,7 @@
             $('body').on('keydown', function(event){
                 if( $popup.is(':visible') ){
                     if(event.which == 27) { // esc key
-                        $popup.fadeOut();
+                        close();
                 
                     }
                     if(event.which == 37) { // left key
