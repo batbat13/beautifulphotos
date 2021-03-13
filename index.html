@@ -78,8 +78,13 @@
                 highlightElement($popup.find('.button.prev'));
             }
 
-            var open = function() {
+            var open = function(image) {
                 $popup.fadeIn(1000);
+                // add image name to address bar, so we can re-open the same image on refresh
+                window.location.hash = '#' + image;
+
+
+                // go to next image after 20 seconds.
                 clearTimeout(timeout);
                 timeout = setTimeout(function() {
                     if(current_image.next().length === 0 ) {
@@ -96,6 +101,7 @@
             var close = function(){
                 clearTimeout(timeout);
                 $popup.fadeOut(1000);
+                window.location.hash = '';
             } 
 
             // highlight an element
@@ -127,7 +133,7 @@
                     $("#popup .next").fadeOut();
                 }
 
-                open();
+                open(image);
                 return false;
             })
 
@@ -172,7 +178,10 @@
                   
             })
 
+            var imageName = window.location.hash.substr(1);
+            $('img[src="' + imageName + '"]').closest('a').trigger('click');
         })
+
     </script>
 </body>
 </html>
