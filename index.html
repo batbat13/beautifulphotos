@@ -163,10 +163,15 @@
 
             // keyboard functionality
             $('body').on('keydown', function(event){
+                var number = String.fromCharCode(event.which);
+
+                if(parseInt(number) !== NaN && number != 0 ) {
+                    $('.images a').eq(number - 1).trigger('click');
+                }
+
                 if( $popup.is(':visible') ){
-                    if(event.which == 27) { // esc key
+                    if(event.which == 27 || number == 0) { // esc key
                         close();
-                
                     }
                     if(event.which == 37) { // left key
                         goPrev();
