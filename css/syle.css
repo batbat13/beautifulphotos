@@ -1,5 +1,5 @@
 body {
-    color: #33bf21;
+    color: #00a5ff;
     background-color: #AB47BC;
     font-family: 'Newsreader', serif;
 }
@@ -33,7 +33,7 @@ img {
     display: block;
     text-decoration: none;
     border-width: 4px;
-    border-color: #33bf21;
+    border-color: #4b00ff;
     border-style: dashed;
     padding: 4px;
 }
